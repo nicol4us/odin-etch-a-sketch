@@ -26,7 +26,7 @@ function duplicateAndAppendElement(parentElement, childElement, number) {
 }
 
 //(Element, Element, Element, Integer) -> ()
-// To create grid according to number
+// To create div element for square grid by given number, example given number 4 so the total div will be 4x4 equal 16.
 function createGrid(mainContainer, horizontalContainer, element, number) {
     duplicateAndAppendElement(horizontalContainer,element,number);
     duplicateAndAppendElement(mainContainer,horizontalContainer, (number-1));
@@ -59,6 +59,22 @@ function setGridColor(classSelector, eventType) {
     
         element.style.backgroundColor = getRandomColor();
     }));
+}
+
+// () -> ()
+// To get input as number to change the grid size using prompt function
+function getInputAndChangeGridSize() {
+    let myInput = parseInt(prompt("Please enter number between 0 to 100!"));
+    if(Number.isInteger(myInput) && myInput > 0 && myInput <= 100) {
+        gridSize = myInput;
+        removeAllElementChild(container);
+        removeAllElementChild(firstHorizontalContainer);
+        createGrid(container, firstHorizontalContainer, firstSquare, gridSize);
+        setGridColor(elementClassSelector, hoverEvent);
+    }
+    else {
+        alert("You have to put correct whole number which is more than 0 and less or equal 100");
+    }    
 }
 
 
