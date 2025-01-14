@@ -1,0 +1,27 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+#container {
+    width: 980px;
+    height: 980px;   
+    display: flex;
+    flex-direction: column; 
+}
+.horizontal-container {
+    display: flex;
+    flex: 1;
+}
+.horizontal-container .square {
+    flex: 1;   
+}
+button {
+    border-radius: 8px;
+    background-color: aqua;
+    margin: 16px;
+    padding: 16px;
+    font-size: 24px;
+    font-weight: bold;
+}
