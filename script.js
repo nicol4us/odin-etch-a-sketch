@@ -4,6 +4,7 @@ const container             = document.querySelector("#container");
 const horizontalContainer   = document.querySelector(".horizontal-container");
 const firstSquare           = document.createElement("div");
 firstSquare.classList.add("square");
+const resizeButton          = document.querySelector("button");
 const squareSelector        = ".square";
 const hoverEvent            = "mouseover";
 
@@ -11,7 +12,6 @@ const hoverEvent            = "mouseover";
 // Variable Declaration
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 let gridSize = 16;
-
 
 
 // Functions Declaration
@@ -68,14 +68,23 @@ function getInputAndChangeGridSize() {
     if(Number.isInteger(myInput) && myInput > 0 && myInput <= 100) {
         gridSize = myInput;
         removeAllElementChild(container);
-        removeAllElementChild(firstHorizontalContainer);
-        createGrid(container, firstHorizontalContainer, firstSquare, gridSize);
-        setGridColor(elementClassSelector, hoverEvent);
+        removeAllElementChild(horizontalContainer)
+        createGrid(container,horizontalContainer, firstSquare, gridSize);
+        setGridColor(squareSelector, hoverEvent);
     }
     else {
         alert("You have to put correct whole number which is more than 0 and less or equal 100");
     }    
 }
+
+
+
+// Function Call Executions
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+createGrid(container,horizontalContainer,firstSquare,gridSize);
+setGridColor(squareSelector,hoverEvent);
+resizeButton.addEventListener("click", getInputAndChangeGridSize);
 
 
 
